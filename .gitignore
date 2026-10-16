@@ -1,0 +1,24 @@
+# 依赖
+node_modules/
+
+# 构建产物
+server/dist/
+web/dist/
+
+# SQLite 数据文件（运行期生成）
+server/data/*.db
+server/data/*.db-wal
+server/data/*.db-shm
+
+# 日志与环境
+*.log
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# 设计报告（内部文档，不入开源仓库）
+docs/01-需求分析与设计报告.md

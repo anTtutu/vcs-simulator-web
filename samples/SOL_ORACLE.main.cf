@@ -1,0 +1,81 @@
+include "types.cf"
+
+cluster SOL_ORACLE (
+    ClusterName = "SOL_ORACLE"
+    )
+
+system sys1 (
+    )
+
+system sys2 (
+    )
+
+service group ORA_PROD_Group (
+    SystemList = { sys1 = 0, sys2 = 1 }
+    AutoStartList = { sys1 }
+    )
+
+    IP_oraprod requires NIC_oraprod
+    LSNR_oraprod_lsnr requires ORA_oraprod
+    Mount_oraprod_u01 requires Vol_oraprod_vol1
+    Mount_oraprod_u02 requires Vol_oraprod_vol2
+    ORA_oraprod requires IP_oraprod
+    ORA_oraprod requires Mount_oraprod_u01
+    ORA_oraprod requires Mount_oraprod_u02
+    Vol_oraprod_vol1 requires DG_oraprod
+    Vol_oraprod_vol2 requires DG_oraprod
+
+    DG_oraprod (
+        DiskGroupName = "oraprod"
+        StartVolumes = 1
+        )
+
+    IP_oraprod (
+        Address = "10.10.10.11"
+        NetMask = "255.255.255.0"
+        Device = "hme0"
+        )
+
+    LSNR_oraprod_lsnr (
+        Owner = "oraprod"
+        Home = "/prod/u01/oracle/product/8.1.5"
+        TnsAdmin = "/prod/u01/oracle/network/admin"
+        Listener = "LISTENER_PROD"
+        MonScript = "./bin/Netlsnr/LsnrTest.pl"
+        Encoding = "ZHS16GBK"
+        )
+
+    Mount_oraprod_u01 (
+        MountPoint = "/prod/u01"
+        BlockDevice = "/dev/vx/dsk/oraprod/u01"
+        FSType = "vxfs"
+        )
+
+    Mount_oraprod_u02 (
+        MountPoint = "/prod/u02"
+        BlockDevice = "/dev/vx/dsk/oraprod/u02"
+        FSType = "vxfs"
+        )
+
+    NIC_oraprod (
+        Device = "hme0"
+        )
+
+    ORA_oraprod (
+        Sid = "oraprod"
+        Owner = "oraprod"
+        Home = "/prod/u01/oracle/product/8.1.5"
+        Pfile = "/prod/u01/oracle/product/8.1.5/dbs/initoraprod.ora"
+        User = "oracle"
+        )
+
+    Vol_oraprod_vol1 (
+        Volume = "vol1"
+        DiskGroup = "oraprod"
+        )
+
+    Vol_oraprod_vol2 (
+        Volume = "vol2"
+        DiskGroup = "oraprod"
+        )
+

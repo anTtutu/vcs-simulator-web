@@ -1,0 +1,11 @@
+# pnpm workspace 配置：server（后端引擎 + API）/ web（前端 SPA）
+packages:
+  - server
+  - web
+# 允许执行安装脚本的依赖：better-sqlite3(原生模块)、esbuild(二进制)、vue-demi(切 Vue2/3)、ssh2(可选 cpu-features 加速)
+allowBuilds:
+  better-sqlite3: true
+  cpu-features: true
+  esbuild: true
+  ssh2: true
+  vue-demi: true

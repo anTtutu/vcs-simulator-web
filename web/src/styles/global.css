@@ -1,0 +1,55 @@
+/* 全局基础样式：Windows 版观感的浅灰工作台风格 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  color: #1f2d3d;
+  background: #e8eaed;
+}
+
+a {
+  color: #0b57d0;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 通用按钮（Windows 风格浅浮雕） */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #b8bfc7;
+  border-radius: 3px;
+  background: linear-gradient(#fdfdfd, #eef0f2);
+  cursor: pointer;
+  font-size: 12px;
+  color: #24313f;
+}
+.btn:hover:not(:disabled) {
+  border-color: #7f97ad;
+  background: linear-gradient(#ffffff, #e3ecf5);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn.primary {
+  background: linear-gradient(#4b8bd4, #2f6cb5);
+  border-color: #2a5e9e;
+  color: #fff;
+}
+.btn.danger {
+  color: #b3261e;
+}

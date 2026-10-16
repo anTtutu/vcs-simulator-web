@@ -1,0 +1,18 @@
+{
+  "name": "vcs-simulator-web",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Web 版 Veritas Cluster Server 模拟器（学习/演示用，复刻 Windows 版 VCS Simulator）",
+  "author": "Anttu",
+  "scripts": {
+    "dev:server": "pnpm --filter server dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm --filter server typecheck"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
