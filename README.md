@@ -5,6 +5,9 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green) ![Node](https://img.shields.io/badge/node-%E2%89%A520-blue) ![Tests](https://img.shields.io/badge/tests-70%2B-brightgreen)
 
+![集群管理面板](docs/images/vcs_list.png)
+![拓扑视图（Oracle 双机 HA）](docs/images/ora_cluster.png)
+
 ## ✨ 功能
 
 - **集群管理**：集群/节点/服务组/资源四级对象 CRUD，**25 个内置 Demo 集群**（经典 Oracle 双机、NFS、VVR/SRDF 容灾对、MySQL/Nginx/Kafka/Redis/ES/MongoDB 副本集、19c 多租户等场景），演示级登录与三角色权限（Administrator/Operator/Observer）
